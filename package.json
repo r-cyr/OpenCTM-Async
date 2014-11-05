@@ -1,0 +1,19 @@
+{
+  "name": "openctm",
+  "version": "0.8.0",
+  "description": "OpenCTM loader",
+  "main": "src/openctm-async.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Systemfault",
+  "license": "BSD",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "browserify": "^6.2.0",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.2.0",
+    "webworkify": "^1.0.0"
+  }
+}
