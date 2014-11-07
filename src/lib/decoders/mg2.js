@@ -147,7 +147,7 @@ var decompress = function(buffer, decompressedSize, stride) {
       reject(event);
     });
 
-    worker.postMessage({ buffer: buffer, decompressedSize: decompressedSize, stride: stride });
+    worker.postMessage({ buffer: buffer, decompressedSize: decompressedSize, stride: stride }, [buffer]);
   });
 };
 

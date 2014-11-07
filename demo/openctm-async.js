@@ -202,7 +202,7 @@ var decompress = function(buffer, decompressedSize, stride) {
       reject(event);
     });
 
-    worker.postMessage({ buffer: buffer, decompressedSize: decompressedSize, stride: stride });
+    worker.postMessage({ buffer: buffer, decompressedSize: decompressedSize, stride: stride }, [buffer]);
   });
 };
 
@@ -477,7 +477,8 @@ module.exports = function(self) {
         writer = new InterleavedStreamWriter(new ArrayBuffer(event.data.decompressedSize), event.data.stride);
 
     LZMA.decompress(reader, reader, writer, writer.buffer.byteLength);
-    self.postMessage(writer.buffer);
+    self.postMessage(writer.buffer, [writer.buffer]);
+    self.close();
   });
 
 };
